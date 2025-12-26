@@ -1,0 +1,38 @@
+datasource db {
+  provider = "postgresql"
+}
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+model User {
+  id        Int      @id @default(autoincrement())
+  name      String
+  email     String   @unique
+  password  String
+  skills    String[]
+  createdAt DateTime @default(now())
+  jobs      Job[]
+}
+
+model Job {
+  id          Int       @id @default(autoincrement())
+  userId      Int
+  user        User      @relation(fields: [userId], references: [id])
+  company     String
+  role        String
+  status      String
+  notes       String?
+  appliedDate DateTime  @default(now())
+  analysis    AIAnalysis?
+}
+
+model AIAnalysis {
+  id          Int      @id @default(autoincrement())
+  jobId       Int      @unique
+  job         Job      @relation(fields: [jobId], references: [id])
+  atsScore    Float
+  missingSkills String[]
+  suggestions String[]
+}
