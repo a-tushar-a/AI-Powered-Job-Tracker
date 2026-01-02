@@ -21,6 +21,11 @@ app.get('/', (req, res) => {
   res.send('AI Powered Job Tracker Backend API');
 });
 
+// Health check route
+app.get('/api/health', (req, res) => {
+  res.status(200).send('OK');
+});
+
 // Use routes
 app.use('/api/auth', authRoutes);
 app.use('/api/jobs', jobRoutes);

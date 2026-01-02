@@ -2,7 +2,7 @@ services:
   - type: web
     name: ai-job-tracker-backend
     env: node
-    buildCommand: "npm install && npm run build"
+    buildCommand: "npm install && npx prisma migrate deploy && npm run build"
     startCommand: "npm start"
     plan: free # or "starter" for more resources
     rootDir: ./backend
@@ -15,7 +15,7 @@ services:
       - key: JWT_SECRET
         generateValue: true
       - key: GEMINI_API_KEY
-        sync: false # Set to true to link to a Render Secret File if you have one
+        sync: true # Set to true to link to a Render Secret File if you have one
   - type: web
     name: ai-job-tracker-frontend
     env: static
