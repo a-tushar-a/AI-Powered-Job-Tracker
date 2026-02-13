@@ -1,54 +1,38 @@
-import { BrowserRouter as Router, Routes, Route, Navigate } from 'react-router-dom';
-import Header from './components/Header';
-import Footer from './components/Footer';
-import { useAuth } from './context/AuthContext';
-import Loading from './components/Loading';
-import LoginPage from './pages/LoginPage';
-import RegisterPage from './pages/RegisterPage';
-import DashboardPage from './pages/DashboardPage';
-import ResumeAnalyzerPage from './pages/ResumeAnalyzerPage';
-import InterviewPrepPage from './pages/InterviewPrepPage';
-import AnalyticsPage from './pages/AnalyticsPage'; // Import AnalyticsPage
+import React from 'react';
+import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+import Layout from './components/layout/Layout';
+import Dashboard from './pages/Dashboard';
+import ResumeJDMatch from './pages/ResumeJDMatch';
+import SkillGapAnalysis from './pages/SkillGapAnalysis';
+import ResumeImprovement from './pages/ResumeImprovement';
+import AISkillRoadmapGenerator from './pages/AISkillRoadmapGenerator';
+import SmartJobApplyRecommendation from './pages/SmartJobApplyRecommendation';
+import InterviewProbabilityPredictor from './pages/InterviewProbabilityPredictor';
+import AICoverLetterGenerator from './pages/AICoverLetterGenerator';
+import AIMockInterviewMode from './pages/AIMockInterviewMode';
+import AnswerFeedbackAnalysis from './pages/AnswerFeedbackAnalysis';
+import RejectionMailAnalyzer from './pages/RejectionMailAnalyzer';
 
-function App() {
-  const { user, loading } = useAuth();
-
-  if (loading) {
-    return <Loading />;
-  }
-
+const App: React.FC = () => {
   return (
     <Router>
-      <div className="min-h-screen bg-gray-100 flex flex-col">
-        <Header />
-        <main className="flex-grow container mx-auto p-4">
-          <Routes>
-            <Route path="/" element={<h2 className="text-xl">Welcome to your Job Tracker!</h2>} />
-            <Route path="/login" element={user ? <Navigate to="/dashboard" /> : <LoginPage />} />
-            <Route path="/register" element={user ? <Navigate to="/dashboard" /> : <RegisterPage />} />
-            <Route
-              path="/dashboard"
-              element={user ? <DashboardPage /> : <Navigate to="/login" />}
-            />
-            <Route
-              path="/analyze-resume/:jobId"
-              element={user ? <ResumeAnalyzerPage /> : <Navigate to="/login" />}
-            />
-            <Route
-              path="/interview-prep"
-              element={user ? <InterviewPrepPage /> : <Navigate to="/login" />}
-            />
-            <Route
-              path="/analytics"
-              element={user ? <AnalyticsPage /> : <Navigate to="/login" />}
-            />
-             <Route path="*" element={<h2 className="text-xl">404 Not Found</h2>} />
-          </Routes>
-        </main>
-        <Footer />
-      </div>
+      <Layout>
+        <Routes>
+          <Route path="/" element={<Dashboard />} />
+          <Route path="/resume-jd-match" element={<ResumeJDMatch />} />
+          <Route path="/skill-gap-analysis" element={<SkillGapAnalysis />} />
+          <Route path="/resume-improvement" element={<ResumeImprovement />} />
+          <Route path="/ai-skill-roadmap-generator" element={<AISkillRoadmapGenerator />} />
+          <Route path="/smart-job-apply-recommendation" element={<SmartJobApplyRecommendation />} />
+          <Route path="/interview-probability-predictor" element={<InterviewProbabilityPredictor />} />
+          <Route path="/ai-cover-letter-generator" element={<AICoverLetterGenerator />} />
+          <Route path="/ai-mock-interview-mode" element={<AIMockInterviewMode />} />
+          <Route path="/answer-feedback-analysis" element={<AnswerFeedbackAnalysis />} />
+          <Route path="/rejection-mail-analyzer" element={<RejectionMailAnalyzer />} />
+        </Routes>
+      </Layout>
     </Router>
   );
-}
+};
 
 export default App;
