@@ -3,7 +3,7 @@ services:
   frontend:
     build: ./frontend
     ports:
-      - "3000:3000"
+      - "5173:5173"
   backend:
     build: ./backend
     ports:
@@ -28,3 +28,4 @@ services:
       - postgres_data:/var/lib/postgresql/data
 
 volumes:
+  postgres_data: {}

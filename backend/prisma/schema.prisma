@@ -1,38 +1,150 @@
-datasource db {
-  provider = "postgresql"
-}
-
 generator client {
   provider = "prisma-client-js"
 }
 
+datasource db {
+  provider = "postgresql"
+}
+
 model User {
-  id        Int      @id @default(autoincrement())
-  name      String
-  email     String   @unique
-  password  String
-  skills    String[]
+  id               String            @id @default(uuid())
+  email            String            @unique
+  password         String
+  name             String?
+  createdAt        DateTime          @default(now())
+  updatedAt        DateTime          @updatedAt
+  resumes          Resume[]
+  interviewAnswers InterviewAnswer[]
+  skillAnalyses    SkillAnalysis[]
+  coverLetters     CoverLetter[]
+  analyticsHistory AnalyticsHistory[]
+  jobs             Job[]
+  skills           Skill[]
+  experiences      Experience[]
+  educations       Education[]
+  sentMessages     Message[]         @relation("sentMessages")
+  receivedMessages Message[]         @relation("receivedMessages")
+}
+
+model Resume {
+  id        String   @id @default(uuid())
+  userId    String
+  user      User     @relation(fields: [userId], references: [id])
+  title     String
+  content   String
   createdAt DateTime @default(now())
-  jobs      Job[]
+  updatedAt DateTime @updatedAt
 }
 
 model Job {
-  id          Int       @id @default(autoincrement())
-  userId      Int
-  user        User      @relation(fields: [userId], references: [id])
-  company     String
-  role        String
-  status      String
-  notes       String?
-  appliedDate DateTime  @default(now())
-  analysis    AIAnalysis?
+  id               String            @id @default(uuid())
+  userId           String
+  user             User              @relation(fields: [userId], references: [id])
+  company          String
+  role             String
+  status           String
+  notes            String?
+  appliedDate      DateTime          @default(now())
+  updatedAt        DateTime          @updatedAt
+  interviewAnswers InterviewAnswer[]
+  coverLetters     CoverLetter[]
+  skillAnalyses    SkillAnalysis[]
+  analyticsHistory AnalyticsHistory[]
 }
 
-model AIAnalysis {
-  id          Int      @id @default(autoincrement())
-  jobId       Int      @unique
-  job         Job      @relation(fields: [jobId], references: [id])
-  atsScore    Float
-  missingSkills String[]
-  suggestions String[]
+model InterviewAnswer {
+  id        String   @id @default(uuid())
+  userId    String
+  user      User     @relation(fields: [userId], references: [id])
+  jobId     String
+  job       Job      @relation(fields: [jobId], references: [id])
+  question  String
+  answer    String
+  feedback  String?
+  score     Float?
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+}
+
+model SkillAnalysis {
+  id             String   @id @default(uuid())
+  userId         String
+  user           User     @relation(fields: [userId], references: [id])
+  jobId          String
+  job            Job      @relation(fields: [jobId], references: [id])
+  skillsRequired String[]
+  userSkills     String[]
+  gapAnalysis    String
+  roadmap        String?
+  createdAt      DateTime @default(now())
+  updatedAt      DateTime @updatedAt
+}
+
+model CoverLetter {
+  id        String   @id @default(uuid())
+  userId    String
+  user      User     @relation(fields: [userId], references: [id])
+  jobId     String
+  job       Job      @relation(fields: [jobId], references: [id])
+  content   String
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+}
+
+model AnalyticsHistory {
+  id        String   @id @default(uuid())
+  userId    String
+  user      User     @relation(fields: [userId], references: [id])
+  jobId     String?
+  job       Job?     @relation(fields: [jobId], references: [id])
+  type      String // e.g., "Resume-JD Match", "Interview Probability"
+  result    String
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+}
+
+model Skill {
+  id        String   @id @default(uuid())
+  name      String
+  userId    String
+  user      User     @relation(fields: [userId], references: [id])
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+}
+
+model Experience {
+  id          String   @id @default(uuid())
+  title       String
+  company     String
+  startDate   DateTime
+  endDate     DateTime?
+  description String?
+  userId      String
+  user        User     @relation(fields: [userId], references: [id])
+  createdAt   DateTime @default(now())
+  updatedAt   DateTime @updatedAt
+}
+
+model Education {
+  id          String   @id @default(uuid())
+  school      String
+  degree      String
+  fieldOfStudy String?
+  startDate   DateTime
+  endDate     DateTime?
+  userId      String
+  user        User     @relation(fields: [userId], references: [id])
+  createdAt   DateTime @default(now())
+  updatedAt   DateTime @updatedAt
+}
+
+model Message {
+  id          String   @id @default(uuid())
+  content     String
+  senderId    String
+  sender      User     @relation("sentMessages", fields: [senderId], references: [id])
+  receiverId  String
+  receiver    User     @relation("receivedMessages", fields: [receiverId], references: [id])
+  createdAt   DateTime @default(now())
+  updatedAt   DateTime @updatedAt
 }

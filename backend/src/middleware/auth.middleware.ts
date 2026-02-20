@@ -1,28 +1,27 @@
 import { Request, Response, NextFunction } from 'express';
 import jwt from 'jsonwebtoken';
+import { AppError } from '../utils/AppError';
 
-export interface AuthRequest extends Request {
-  userId?: number;
+const JWT_SECRET = process.env.JWT_SECRET || 'your_jwt_secret';
+
+interface AuthRequest extends Request {
+  user?: { userId: string };
 }
 
-export const protect = (req: AuthRequest, res: Response, next: NextFunction) => {
-  let token;
+export const authMiddleware = (req: AuthRequest, res: Response, next: NextFunction) => {
+  const authHeader = req.headers.authorization;
 
-  if (req.headers.authorization && req.headers.authorization.startsWith('Bearer')) {
-    try {
-      token = req.headers.authorization.split(' ')[1];
-
-      const decoded: any = jwt.verify(token, process.env.JWT_SECRET as string);
-
-      req.userId = decoded.id; // Assuming your JWT payload has an 'id' field for the user
-      next();
-    } catch (error) {
-      console.error(error);
-      res.status(401).json({ message: 'Not authorized, token failed' });
-    }
+  if (!authHeader || !authHeader.startsWith('Bearer ')) {
+    return next(new AppError('Authentication invalid', 401));
   }
 
-  if (!token) {
-    res.status(401).json({ message: 'Not authorized, no token' });
+  const token = authHeader.split(' ')[1];
+
+  try {
+    const decoded = jwt.verify(token, JWT_SECRET) as { userId: string };
+    req.user = decoded;
+    next();
+  } catch (error) {
+    return next(new AppError('Authentication invalid', 401));
   }
 };
