@@ -1,10 +1,10 @@
-#🚀 AI- Powered JOB TRACKER
+## 🚀 AI- Powered JOB TRACKER
 
 React · Tailwind CSS · Node.js · Express · PostgreSQL · SQLite · Google Gemini API · OAuth 2.0 · Google Cloud Run · Nginx · CI/CD
 
 A production-ready, full-stack job tracking platform that leverages AI to automate resume analysis, job matching, and application management. The system is designed using a scalable architecture and deployed on cloud infrastructure with secure authentication and automated workflows.
 
-#✨ Key Highlights
+## ✨ Key Highlights
 
 
 🤖 Integrated AI-powered resume analysis and job matching using Google Gemini API
@@ -16,7 +16,7 @@ A production-ready, full-stack job tracking platform that leverages AI to automa
 ⚡ Designed for scalability, performance, and real-world production use
 
 
-##🏗️ Project Structure
+## 🏗️ Project Structure
 
 
 AI-Job-Tracker/
@@ -37,7 +37,7 @@ AI-Job-Tracker/
 ├── .github/workflows/     # CI/CD pipelines (GitHub Actions)
 └── README.md
 
-##🛠️ Technology Stack
+## 🛠️ Technology Stack
 🌐 Frontend
 React (with TypeScript)
 Vite
@@ -70,7 +70,7 @@ PostgreSQL
 Google Cloud SDK (optional for deployment)
 Git
 
-##🚀 Setup & Installation
+## 🚀 Setup & Installation
 
 1️⃣ Clone the Repository
 git clone https://github.com/a-tushar-a/AI-Job-Tracker.git
@@ -105,7 +105,7 @@ Configure Nginx for reverse proxy
 Set up GitHub Actions for CI/CD
 
 
-##💡 How It Works
+## 💡 How It Works
 User logs in via Google OAuth
 Uploads resume or inputs profile details
 AI analyzes resume and extracts key skills
@@ -114,7 +114,7 @@ Dashboard displays matched jobs and application tracking
 Notifications and updates are sent via email automation
 
 
-📌 Key Strengths
+## 📌 Key Strengths
 ⚡ AI-driven automation reduces manual effort
 🔐 Secure authentication & protected APIs
 ☁️ Cloud-native deployment with scalability
@@ -123,7 +123,7 @@ Notifications and updates are sent via email automation
 
 
 
-### The **AI Powered Job Tracker** is built using a modern, full-stack TypeScript architecture.
+## The **AI Powered Job Tracker** is built using a modern, full-stack TypeScript architecture.
 
 ## Frontend (Client-Side)
 - **Framework:** [React 19](https://react.dev/) (with TypeScript)
