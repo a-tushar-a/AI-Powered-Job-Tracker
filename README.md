@@ -173,7 +173,7 @@ Notifications and updates are sent via email automation
 
 
 
-##👨‍💻 Author
+## 👨‍💻 Author
 
 Tushar  
 
