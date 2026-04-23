@@ -156,9 +156,24 @@ Notifications and updates are sent via email automation
 - **Reverse Proxy:** Nginx (manages external traffic to port 3000)
 - 
 <img width="1600" height="848" alt="1000101731" src="https://github.com/user-attachments/assets/94869a60-ab4a-4b7c-bf7b-9ded15f65db7" />
+<img width="1600" height="854" alt="1000101732" src="https://github.com/user-attachments/assets/c44126de-80dc-4be4-9ac2-c956fa65c6e2" />
+<img width="1600" height="859" alt="1000101734" src="https://github.com/user-attachments/assets/5718b6a2-4247-47a1-a546-922771a5d6a2" />
+<img width="1600" height="863" alt="1000101735" src="https://github.com/user-attachments/assets/afdad48e-7ee9-4445-857a-a191586e68f9" />
+<img width="1600" height="857" alt="1000101736" src="https://github.com/user-attachments/assets/75e90db1-81d8-4a17-b061-f9c0d7c10f0e" />
+<img width="1600" height="857" alt="1000101737" src="https://github.com/user-attachments/assets/2226ed92-aeb8-46ac-82d0-beb640544659" />
+<img width="1600" height="865" alt="1000101739" src="https://github.com/user-attachments/assets/00b591d3-fcce-4425-b107-4765a10e1a0e" />
+<img width="1600" height="849" alt="1000101740" src="https://github.com/user-attachments/assets/c48437ca-2bc9-452a-a46a-4fa4655482e7" />
+<img width="1600" height="861" alt="1000101742 (1)" src="https://github.com/user-attachments/assets/ed42de46-5216-4a75-b2ca-26d6c1bfd271" />
+<img width="1600" height="861" alt="1000101742 (2)" src="https://github.com/user-attachments/assets/dbb00903-0334-4ad2-9519-e116459a4160" />
+<img width="1600" height="858" alt="1000101743" src="https://github.com/user-attachments/assets/a2a17df6-c48b-4cab-9ff7-ddaed5cead78" />
+<img width="1600" height="856" alt="1000101744" src="https://github.com/user-attachments/assets/cbf0dc0a-8ab2-4aa6-8018-d270bacfba55" />
+<img width="1600" height="854" alt="1000101745" src="https://github.com/user-attachments/assets/b99a7b5a-1592-42f0-9711-6566f5711752" />
+<img width="1600" height="863" alt="1000101746" src="https://github.com/user-attachments/assets/6842b5e8-e744-4c62-912c-4fd21abedcca" />
+<img width="1600" height="855" alt="1000101747" src="https://github.com/user-attachments/assets/aa6f663b-1816-4167-8889-75ca9d8ee227" />
 
- 
-👨‍💻 Author
+
+
+##👨‍💻 Author
 
 Tushar  
 
