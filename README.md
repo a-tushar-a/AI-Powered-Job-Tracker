@@ -154,6 +154,8 @@ Notifications and updates are sent via email automation
 ## Infrastructure
 - **Environment:** [Google Cloud Run](https://cloud.google.com/run)
 - **Reverse Proxy:** Nginx (manages external traffic to port 3000)
+- 
+<img width="1600" height="848" alt="1000101731" src="https://github.com/user-attachments/assets/94869a60-ab4a-4b7c-bf7b-9ded15f65db7" />
 
  
 👨‍💻 Author
