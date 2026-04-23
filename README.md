@@ -1,4 +1,4 @@
-🚀 AI-Powered Job Tracker
+🚀 AI- Powered JOB TRACKER
 
 React · Tailwind CSS · Node.js · Express · PostgreSQL · SQLite · Google Gemini API · OAuth 2.0 · Google Cloud Run · Nginx · CI/CD
 
@@ -119,6 +119,41 @@ Notifications and updates are sent via email automation
 ☁️ Cloud-native deployment with scalability
 🔄 Continuous deployment with CI/CD
 📊 Real-world use case with production-ready design
+
+
+
+ The **AI Powered Job Tracker** is built using a modern, full-stack TypeScript architecture.
+
+## Frontend (Client-Side)
+- **Framework:** [React 19](https://react.dev/) (with TypeScript)
+- **Build Tool:** [Vite](https://vitejs.dev/)
+- **Styling:** [Tailwind CSS 4.0](https://tailwindcss.com/)
+- **Animations:** [Motion](https://motion.dev/)
+- **Icons:** [Lucide React](https://lucide.dev/)
+- **Data Visualization:** [Recharts](https://recharts.org/)
+- **Markdown:** `react-markdown`
+
+## Backend (Server-Side)
+- **Runtime:** [Node.js](https://nodejs.org/)
+- **Server Framework:** [Express](https://expressjs.com/)
+- **Language:** [TypeScript](https://www.typescriptlang.org/) (executed via `tsx`)
+- **Authentication:** 
+  - [JSON Web Tokens (JWT)](https://jwt.io/)
+  - [bcryptjs](https://www.npmjs.com/package/bcryptjs)
+  - **OAuth 2.0:** Google Social Login
+
+## Database
+- **Engine:** [SQLite](https://sqlite.org/)
+- **Driver:** [`better-sqlite3`](https://github.com/WiseLibs/better-sqlite3)
+
+## AI Integration
+- **Model:** [Google Gemini 3.1 Flash](https://ai.google.dev/gemini-api/docs/models/gemini)
+- **SDK:** [`@google/genai`](https://www.npmjs.com/package/@google/genai)
+
+## Infrastructure
+- **Environment:** [Google Cloud Run](https://cloud.google.com/run)
+- **Reverse Proxy:** Nginx (manages external traffic to port 3000)
+
  
 👨‍💻 Author
 
